@@ -38,6 +38,11 @@ if ( ! defined( 'WPINC' ) ) {
 define( 'MK_BUZZFEED_HEADLINES_VERSION', '1.0.0' );
 
 /**
+ * Define the API URL.
+ */
+define( 'MK_BUZZFEED_HEADLINES__GET_URL', 'https://newsapi.org/v2/top-headlines' );
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-mk-buzzfeed-headlines-activator.php
  */

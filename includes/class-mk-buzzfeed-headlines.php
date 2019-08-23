@@ -231,7 +231,7 @@ class Mk_Buzzfeed_Headlines {
 	 * @since    1.0.0
 	 */
 	public function ajax_buzzfeed_headlines__get() {
-		echo "Mr.Postman did it work?";
+		echo MK_BUZZFEED_HEADLINES__GET_URL;
 		wp_die();
 	}
 
