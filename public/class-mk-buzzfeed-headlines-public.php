@@ -96,7 +96,7 @@ class Mk_Buzzfeed_Headlines_Public {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/mk-buzzfeed-headlines-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/mk-buzzfeed-headlines-public.js', array( 'jquery' ), $this->version, true );
 
 	}
 
