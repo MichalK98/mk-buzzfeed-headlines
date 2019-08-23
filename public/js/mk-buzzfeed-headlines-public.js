@@ -15,6 +15,29 @@
 			).done(function (response) {
 				// If worked.
 				console.log("Got response", response);
+
+				// Find the content Class.
+				var content = $(widget).find('.content');
+				// Find data
+				var headlines = response.data.headlines;
+				console.log(headlines);
+				// Create a empty output(o).
+				var o = "";
+				o += "<div class='buzzfeed-headlines'>";
+
+				headlines.forEach(function (row) {
+					// create output
+					o += "<div class='buzzfeed-headline'>";
+					o += "<h3>" + row.title + "</h3>";
+					o += "<p>" + row.description + "</p>";
+					o += "<a href=" + row.url + ">Read more</a>";
+					o += "</div><!-- .buzzfeed-headlines -->";
+					console.log(row.title);
+				});
+
+				o += "</div><!-- .buzzfeed-headline -->";
+				// Write output in DOM.
+				$(content).html(o);
 			}).fail(function (error) {
 				// If didn't work.
 				console.log("Something went wrong", error);
