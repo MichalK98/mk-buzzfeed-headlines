@@ -79,6 +79,9 @@ class Mk_Buzzfeed_Headlines {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
+		// run function register_widget that register the widget
+		$this->register_widget();
+
 	}
 
 	/**
@@ -121,6 +124,11 @@ class Mk_Buzzfeed_Headlines {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-mk-buzzfeed-headlines-public.php';
+		
+		/**
+		 * The class responsible for the widget.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-mk-buzzfeed-headlines-widget.php';
 
 		$this->loader = new Mk_Buzzfeed_Headlines_Loader();
 
@@ -182,6 +190,17 @@ class Mk_Buzzfeed_Headlines {
 	 */
 	public function run() {
 		$this->loader->run();
+	}
+
+	/**
+	 * Register the widget for the plugin.
+	 *
+	 * @since    1.0.0
+	 */
+	public function register_widget() {
+		add_action('widgets_init', function(){
+			register_widget('Mk_Buzzfeed_headlines_Widget');
+		});
 	}
 
 	/**
