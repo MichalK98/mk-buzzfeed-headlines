@@ -1,3 +1,31 @@
 .widget.widget_mk_buzzfeed_headlines .content {
-    color: blue;
+    color: black;
+}
+
+.content .buzzfeed-headlines {
+    font-family: Montserrat, "Helvetica Neue", sans-serif;
+}
+
+.content .buzzfeed-headlines .buzzfeed-headline {
+    border-bottom: 1px solid;
+    margin-bottom: 1rem;
+}
+
+.content .buzzfeed-headlines .buzzfeed-headline h3 {
+    text-transform: uppercase;
+}
+
+.content .buzzfeed-headlines .buzzfeed-headline p {
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
+.content .buzzfeed-headlines .buzzfeed-headline a {
+    color: black;
+    text-decoration: underline;
+    font-size: .9rem;
+}
+
+.content .buzzfeed-headlines .buzzfeed-headline a:hover {
+    opacity: .5;
 }
