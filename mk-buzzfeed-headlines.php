@@ -65,6 +65,11 @@ register_deactivation_hook( __FILE__, 'deactivate_mk_buzzfeed_headlines' );
 require plugin_dir_path( __FILE__ ) . 'includes/class-mk-buzzfeed-headlines.php';
 
 /**
+ * The credentials needed for Buzzfeed Web API.
+ */
+require plugin_dir_path( __FILE__ ) . '/credentials.php';
+
+/**
  * Begins execution of the plugin.
  *
  * Since everything within the plugin is registered via hooks,

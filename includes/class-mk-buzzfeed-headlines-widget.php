@@ -44,6 +44,7 @@ class Mk_Buzzfeed_headlines_Widget extends WP_Widget {
 			<div class="content">
 				<span class="loading">
 					<marquee behavior="alternate">Loading...</marquee>
+					ApiKEY: <?php echo MK_BUZZFEED_HEADLINES_APIKEY; ?>
 				</span>
 			</div>
 		<?php
