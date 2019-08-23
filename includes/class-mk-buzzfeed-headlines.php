@@ -231,8 +231,20 @@ class Mk_Buzzfeed_Headlines {
 	 * @since    1.0.0
 	 */
 	public function ajax_buzzfeed_headlines__get() {
-		echo MK_BUZZFEED_HEADLINES__GET_URL;
-		wp_die();
+		// Merge the URL with Parameters and the APIKEY.
+		$authorized_url = MK_BUZZFEED_HEADLINES__GET_URL . "?sources=buzzfeed&pageSize=3&apiKey=" . MK_BUZZFEED_HEADLINES_APIKEY;
+		// Get the remote URL.
+		$response = wp_remote_get($authorized_url);
+		// Check if the $response was successful or if there was any Error.
+		if(is_wp_error($response) || wp_remote_retrieve_response_code($response) != 200) {
+			wp_send_json_error([
+				// Get the Error Code.
+				'error_code' => wp_remote_retrieve_response_code($response),
+				// Get the Error Message.
+				'error_msg' => wp_remote_retrieve_response_message($response),
+			]);
+		}
+		wp_send_json_success("Wow you did it!");
 	}
 
 	/**
