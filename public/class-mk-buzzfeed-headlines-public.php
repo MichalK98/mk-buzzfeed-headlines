@@ -98,6 +98,9 @@ class Mk_Buzzfeed_Headlines_Public {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/mk-buzzfeed-headlines-public.js', array( 'jquery' ), $this->version, true );
 
+		wp_localize_script($this->plugin_name, 'mk_buzzfeed_headlines_ajax_obj', [
+			'ajax_url' => admin_url('admin-ajax.php'),
+			]);
 	}
 
 }
