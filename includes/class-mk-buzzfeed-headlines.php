@@ -244,7 +244,13 @@ class Mk_Buzzfeed_Headlines {
 				'error_msg' => wp_remote_retrieve_response_message($response),
 			]);
 		}
-		wp_send_json_success("Wow you did it!");
+		$body = json_decode(wp_remote_retrieve_body($response));
+
+		// wp_send_json_success($body);
+
+		wp_send_json_success([
+			'headlines' => $body->articles,
+		]);
 	}
 
 	/**
