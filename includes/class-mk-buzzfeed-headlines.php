@@ -79,8 +79,11 @@ class Mk_Buzzfeed_Headlines {
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
 
-		// run function register_widget that register the widget
+		// run function register_widget that register the widget.
 		$this->register_widget();
+
+		// run function register_ajax_actions that register ajax actions.
+		$this->register_ajax_actions();
 
 	}
 
@@ -201,6 +204,35 @@ class Mk_Buzzfeed_Headlines {
 		add_action('widgets_init', function(){
 			register_widget('Mk_Buzzfeed_headlines_Widget');
 		});
+	}
+
+	/**
+	 * Register the ajax actions for the plugin.
+	 *
+	 * @since    1.0.0
+	 */
+	public function register_ajax_actions() {
+		// Register ajax action wp_ajax_buzzfeed_headlines__get.
+		// If logged in action.
+		add_action('wp_ajax_buzzfeed_headlines__get', [
+			$this,
+			'ajax_buzzfeed_headlines__get',
+		]);
+		// If logged out action.
+		add_action('wp_ajax_nopriv_buzzfeed_headlines__get', [
+			$this,
+			'ajax_buzzfeed_headlines__get',
+		]);
+	}
+
+	/**
+	 * Respond to ajax action ajax_buzzfeed_headlines__get.
+	 *
+	 * @since    1.0.0
+	 */
+	public function ajax_buzzfeed_headlines__get() {
+		echo "Mr.Postman did it work?";
+		wp_die();
 	}
 
 	/**
